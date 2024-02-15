@@ -68,6 +68,7 @@ body {
 	animation-name: moveinright;
 	animation-duration: 1s;
 	animation-timing-function: ease-out;
+	margin-bottom: 3rem;
 }
 @keyframes moveinleft {
 	0% {
@@ -94,4 +95,59 @@ body {
 		opacity: 1;
 		transform: translateX(0);
 	}
+}
+@keyframes moveup {
+	0% {
+		opacity: 0;
+		transform: translateY(100px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.btn:link,
+.btn:visited,
+.btn {
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 15px 40px;
+	border-radius: 10rem;
+	border: none;
+	transition: all 0.2s;
+	cursor: pointer;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+	position: relative;
+	animation: moveup 0.5s ease-out 0.75s;
+	animation-fill-mode: backwards;
+}
+.btn:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.btn:active {
+	transform: translateY(1px);
+}
+.btn-white {
+	background-color: white;
+	color: #777;
+}
+.btn::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 100px;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	transition: all 0.4s;
+}
+.btn-white::after {
+	content: "";
+	background-color: white;
+}
+.btn:hover::after {
+	transform: scaleX(1.4) scaleY(1.6);
+	opacity: 0;
 }
